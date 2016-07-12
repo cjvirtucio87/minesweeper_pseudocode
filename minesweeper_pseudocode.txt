@@ -1,0 +1,28 @@
+Grid
+- 2d array
+- each index of a row => y coord
+- each index of a first row => x coord
+- size can scale
+
+Cell
+- (y,x)
+- is_bomb? => bool
+- count_bombs_around
+- ... call is_bomb? on adjacent cells
+- ... determines number for cell's marker
+- ask grid for questions..
+- e.g. Cell@(2,2).count_bombs_around => (1,1); (1,2); ...
+
+
+Grid
+- before game even starts, grid will call every_cell_count method
+- ... tells every cell in grid to count bombs around it (count_bombs_around)
+- ..... save result in an instance variable(attr_reader)
+- needs to be able to randomize bomb placement
+- ... basis: range(1,number) of cells (e.g. sample(10))
+- include Enumerable
+- ... call each on self => enumerating through all cells
+- ... e.g. grid.each => iterate through all cells
+- ... 2d array
+- ...... for each array, iterate through sub-arrays
+- ...... return original array
